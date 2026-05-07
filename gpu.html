@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPU Store — Circuit Zone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="store.css">
+</head>
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- TOPBAR -->
+  <header id="topbar">
+    <a href="index.html" class="back-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Home
+    </a>
+    <div class="topbar-logo">CIRCUIT <span>ZONE</span></div>
+    <div class="topbar-right">
+      <div class="points-badge" id="points-display">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span id="pts-val">0</span> pts
+      </div>
+      <div class="cart-btn" onclick="goToCart()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cart-count">0</span>
+      </div>
+      <div class="profile-btn" onclick="goToProfile()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- TOAST -->
+  <div id="toast"></div>
+
+  <!-- REWARD MODAL -->
+  <div class="reward-modal" id="reward-modal" style="display:none">
+    <div class="reward-box">
+      <div class="reward-icon">🏆</div>
+      <div class="reward-title">REWARD UNLOCKED!</div>
+      <div class="reward-sub">You've reached <strong>170 points</strong>.<br>You can now redeem for free GPUs or discounts!</div>
+      <button class="reward-btn" onclick="closeReward()">Claim Reward</button>
+    </div>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="page-header-inner">
+      <div class="page-tag">Graphics Cards</div>
+      <h1 class="page-title">GPU <span>Collection</span></h1>
+      <p class="page-sub">Premium graphics cards from NVIDIA & AMD — handpicked for every tier</p>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All GPUs</button>
+    <button class="filter-btn" data-filter="budget">Budget</button>
+    <button class="filter-btn" data-filter="mid">Mid-Range</button>
+    <button class="filter-btn" data-filter="high">High-End</button>
+    <button class="filter-btn" data-filter="nvidia">NVIDIA</button>
+    <button class="filter-btn" data-filter="amd">AMD</button>
+  </div>
+
+  <!-- PRODUCTS -->
+  <main id="products-root"></main>
+
+  <script src="system.js"></script>
+  <script src="gpu.js"></script>
+</body>
+</html>
+
